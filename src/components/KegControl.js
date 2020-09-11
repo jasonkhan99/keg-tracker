@@ -44,6 +44,16 @@ class KegControl extends React.Component {
                   formVisibleOnPage: false });
   }
 
+  handleSellingKeg = (id) => {
+    const soldKegIndex = this.state.masterKegList.findIndex(keg => keg.id === id);
+    const soldMasterKegList = this.state.masterKegList[soldKegIndex].pint -= 1;
+    this.setState({
+      masterKegList: soldMasterKegList,
+      editing: false,
+      selectedKeg: null
+    })
+  }
+
   handleEditingKegInList = (kegToEdit) => {
     const editedMasterKegList = this.state.masterKegList
       .filter(keg => keg.id !== this.state.selectedKeg.id)
@@ -75,7 +85,8 @@ class KegControl extends React.Component {
       buttonText = "Return to Keg List";
     } else if (this.state.selectedKeg != null) {
       currentlyVisibleState = <KegDetail 
-                                keg = {this.state.selectedKeg} 
+                                keg = {this.state.selectedKeg}
+                                onClickingSellPint = {this.handleSellingKeg}
                                 onClickingDelete = {this.handleDeletingKeg}
                                 onClickingEdit = {this.handleEditClick}
                               />
