@@ -45,12 +45,10 @@ class KegControl extends React.Component {
   }
 
   handleSellingKeg = (id) => {
-    const soldKegIndex = this.state.masterKegList.findIndex(keg => keg.id === id);
-    const soldMasterKegList = this.state.masterKegList[soldKegIndex].pint -= 1;
+    //const soldKegIndex = this.state.masterKegList.findIndex(keg => keg.id === id);
+    const soldMasterKegList = this.state.masterKegList[this.state.masterKegList.findIndex(keg => keg.id === id)].pint -= 1;
     this.setState({
       masterKegList: soldMasterKegList,
-      editing: false,
-      selectedKeg: null
     })
   }
 
