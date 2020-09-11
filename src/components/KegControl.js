@@ -27,6 +27,10 @@ class KegControl extends React.Component {
     }
   }
 
+  handleEditClick = () => {
+    this.setState({editing: true});
+  }
+
   handleChangingSelectedKeg = (id) => {
     const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
     this.setState({selectedKeg: selectedKeg});
@@ -42,7 +46,8 @@ class KegControl extends React.Component {
     const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
     this.setState({
       masterKegList: newMasterKegList,
-      selectedKeg: null
+      selectedKeg: null,
+      editing: false
     });
   }
 
