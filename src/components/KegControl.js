@@ -8,7 +8,8 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKegList: []
+      masterKegList: [],
+      selectedKeg: null
     };
   }
 
@@ -16,6 +17,11 @@ class KegControl extends React.Component {
     this.setState(prevState => ({
       formVisibleOnPage: !prevState.formVisibleOnPage
     }));
+  }
+
+  handleChangingSelectedKeg = (id) => {
+    const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+    this.setState({selectedKeg: selectedKeg});
   }
 
   handleAddingNewKegToList = (newKeg) => {
