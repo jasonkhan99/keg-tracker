@@ -22,7 +22,7 @@ _This will be a two-week project. Spend today building a tap room in React where
 
 * _Visit the following link: https://github.com/jasonkhan99/keg-tracker_
 * _Clone the repository to your desired directory._
-* _Type `npm start` into the terminal` Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* _Type `npm install`, then `npm start` into the terminal` Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Known Bugs
 
